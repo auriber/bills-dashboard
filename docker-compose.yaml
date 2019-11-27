@@ -14,12 +14,12 @@ services:
     links:
       - mysql
     volumes:
-      - ./symfony/:/var/www/symfony:cached
+      - ./:/var/www/symfony:cached
   nginx:
     build: ./docker/nginx
     ports: ['80:80']
     links:
       - php
     volumes:
-      - ./logs/nginx:/var/log/nginx:cached
-      - ./symfony/:/var/www/symfony:cached
+      - ./var/log/nginx:/var/log/nginx:cached
+      - ./:/var/www/symfony:cached
